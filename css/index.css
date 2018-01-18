@@ -1,0 +1,51 @@
+.handle{ width:200px;height: 200px;   border:1px solid #000; position: relative;
+  cursor: pointer;
+}
+.palm{width:120px;height:90px; border:2px solid #000;border-radius: 40px; border-right:0; position: absolute; left:10px;top:50px;
+   background: #f9f12a;
+   box-shadow: -5px 5px 10px rgba(0,0,0,0.25);
+}
+.finger1{width: 45px;height:30px;border-right:2px solid #000; position: absolute;border-radius: 15px; top:50px;left:40px;z-index: 2;
+    background: #f9f12a;
+ }
+.finger2{width: 45px;height:30px;border-top:2px solid #000; border-right:2px solid #000; border-bottom:2px solid #000;position: absolute;border-radius: 15px; top:80px;left:40px; }
+.finger3{width: 45px;height:30px; border-right:2px solid #000; position: absolute;border-radius: 15px; top:112px;left:40px; }
+.finger4{    width: 35px;
+    height: 50px;
+    border: 2px solid #000;
+    border-bottom: 0;
+    position: absolute;
+    border-radius: 20px;
+    top: 10px;
+    left: 56px;
+    transform: rotate(5deg);
+     background: #f9f12a;
+            background: -webkit-gradient(linear, left top, left bottom, from(#fdf993),color-stop(0.5, #ece756), to(#f9f12a))
+            background: -moz-linear-gradient(top, #fdf993, #ece756 75%,#f9f12a);
+            background: -ms-linear-gradient(top, #fdf993, #ece756 75%,#f9f12a);
+            box-shadow: -5px 5px 10px rgba(0,0,0,0.25);
+            z-index: 1;
+  }
+
+
+  #one{position: absolute;    left: 70%;
+    top: 40%;font-size: 20px;color: #ff5555; opacity: 0;
+    transition:all .3s;}
+    #one.active{
+    animation: fade-in;
+    animation-duration: 1.5s;
+    -webkit-animation:fade-in 1.5s;
+    }
+
+    @keyframes fade-in {
+    0% { top:40%;
+      opacity: 1;}
+    100% { top:20%;
+      opacity: 0;}
+}
+@-webkit-keyframes fade-in {
+     0% { top:40%;
+      opacity: 1;}
+    100% { top:20%;
+      opacity: 0;}
+}

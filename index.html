@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+   <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+<div class="handle" id="clickBtn">
+   <div id= "palm" class="palm"></div>
+   <div id="finger1" class="finger1"></div>
+   <div class="finger2"></div>
+    <div class="finger3"></div>
+    <div id="finger4" class="finger4"></div>
+    <div class="topline"></div>
+    <i class="one" id="one">+1</i>
+</div>
+<div>点赞数：<span id="count">0</span></div>
+
+  <script src="jspm_packages/system.js"></script>
+  <script src="config.js"></script>
+
+<script>
+
+/*执行代码*/
+SystemJS.import('./js/mainbabel.js').then(function(m) {
+ const clickBtn = $("#clickBtn"),count = $("#count"),one =$("#one");
+/*封装一个jauery 插件*/
+(function($){
+  const Thumb = new m.Thumb();
+  let type = true; //限制1秒点击一次
+ $.fn.liked = function(){
+    $(this).bind("click", function() {
+     if(type){
+            let countNum = parseInt(count.html());
+            Thumb.setCount(countNum); // 传递到父类中
+            let getCountNum = Thumb.getCount(); // 获取父类中count
+            count.html(getCountNum);
+            one.addClass("active") ;//每次点击+1 效果
+            type = !1;
+            let time = setTimeout(()=>{one.removeClass('active'),type = !0;clearTimeout(time);time= null},500); //限制点击频率
+        }
+        })
+    return this;
+}
+})($);
+
+clickBtn.liked();
+
+});
+  </script>
+</body>
+</html>
