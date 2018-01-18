@@ -1,5 +1,11 @@
-该项目集成了jsmp,systemjs,babel,karma,mocha,chai,webpack;  
-
+该项目集成了以下工具
+-----------
+包管理工具：jsmp；  
+模块加载器：systemjs；  
+es6转换成es5:babel;  
+测试启动器：karma,测试框架：mocha,断言库：chai；  
+打包工具：webpack; 
+* * *
 
 目录介绍：  
 
